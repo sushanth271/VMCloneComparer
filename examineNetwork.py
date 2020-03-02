@@ -9,7 +9,7 @@ def dict_compare(d1, d2):
 	d2_notin_d1 = d2_keys - d1_keys
 	for i in intersect_keys:
 		if d1[i] != d2[i] and i != "configuration":
-			print "Parameter: " + str(i) + " machine 1 has " + str(d1[i]) + " and machine 2 has " + str(d2[i])
+			print "\nParameter: " + str(i) + " machine 1 where as  " + str(d1[i]) + " and machine 2 has " + str(d2[i])
 		elif i == "configuration":
 			dict_compare(d1[i],d2[i])	
 	if len(d1_notin_d2) != 0 :
@@ -45,10 +45,10 @@ def getNetworkHWInfo(target):
 	        	dict1[str(i[0])] = str(i[1])
 	return dict1
 
-print "Comparing network entities:"
+print "\nComparing network entities:"
 dict1 = getNetworkHWInfo(sys.argv[1])
 dict2 = getNetworkHWInfo(sys.argv[2])
 
 added, removed, modified, same = dict_compare(dict1, dict2)
-print "Parameteres matched in the two machines are...."
+print "\nParameteres matched in the two machines are...."
 print str(same)

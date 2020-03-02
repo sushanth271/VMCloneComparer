@@ -29,14 +29,15 @@ def getFSTabEntries(target):
 	return fstab_ds
 
 
+print "\nComparing storage entities."
 diff_result = getDiffList(sys.argv[1], sys.argv[2])
-print "----Getting list of files that differ on both VMs.---"
+print "Getting list of files that differ on both VMs."
 print "\n".join(diff_result)
 
 fstab_keys=["device","mountpoint","fstype","options","backup_opp","fs_check_order"]
 fstab1 = getFSTabEntries(sys.argv[1])
 fstab2 = getFSTabEntries(sys.argv[2])
-print "\n\n----Comparing fstab entries.----"
+print "\n\nComparing fstab entries."
 fstab_result = compareFSTabEntries(fstab1, fstab2)
 for i in fstab_result:
 	print i[0][1] + " differs for the device :" + i[0][0]

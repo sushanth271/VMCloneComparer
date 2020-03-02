@@ -34,10 +34,10 @@ def getComputeInfo(target):
 	        dict1[str(i[0])] = str(i[1])
 	return dict1
 
-print "Comparing Compute entities:"
+print "\nComparing Compute entities:"
 dict1 = getComputeInfo(sys.argv[1])
 dict2 = getComputeInfo(sys.argv[2])
 
 added, removed, modified, same = dict_compare(dict1, dict2)
-print "Parameteres matched in the two machines are...."
+print "\nParameteres matched in the two machines are...."
 print str(same)
